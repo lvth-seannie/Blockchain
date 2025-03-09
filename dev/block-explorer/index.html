@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Explorer</title>
+    <style>
+        body { font-family: 'Roboto Mono', monospace;}
+        .container { width: 80%; margin: 0 auto; padding: 20px; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 8px; text-align: left; }
+        button { padding: 10px 15px; background-color: #0950c2; color: white; border: none; cursor: pointer; margin-bottom: 20px; }
+        button:hover { background-color: #0c170f; }
+        h1 { color: #0950c2; font-family: 'Calibri', sans-serif; }
+        h2 { font-family: 'Calibri', sans-serif; font-size: 18px; color: #333; margin-bottom: 20px; }  
+        h3 { font-family: 'Calibri', sans-serif; font-size: 28px; color: #6f050e; }
+        form { margin-bottom: 20px; }
+        /* adding spacing between form fields */
+        input {
+            margin-bottom: 10px; /* space between each input field */
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .filter-section { margin-top: 20px; }
+
+        .toggle-section {
+            display: none;
+        }
+        .section { margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Blockchain Explorer</h1>
+
+    <h3>Blockchain Data</h3>
+    <button id="loadBlockchainBtn">Load Blockchain</button>
+    <div id="blockchainContent" class="toggle-section">
+        <table id="blockchainTable">
+            <thead>
+                <tr>
+                    <th>Block #</th>
+                    <th>Hash</th>
+                    <th>Previous Hash</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Transaction Recording Form -->
+    <div>
+        <h2>Record a Transaction</h2>
+        <form id="transactionForm">
+            <label for="sender">Sender:</label>
+            <input type="text" id="sender" required>
+
+            <label for="recipient">Recipient:</label>
+            <input type="text" id="recipient" required>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required>
+
+            <button type="submit">Record Transaction</button>
+        </form>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <h2>Filter Transactions</h2>
+        <label for="filterSender">Sender:</label>
+        <input type="text" id="filterSender">
+
+        <label for="filterRecipient">Recipient:</label>
+        <input type="text" id="filterRecipient">
+
+        <label for="filterAmount">Amount:</label>
+        <input type="number" id="filterAmount">
+
+        <button id="filterBtn">Filter</button>
+    </div>
+
+    <!-- Transaction History Table -->
+    <h3>Transaction History</h3>
+    <button id="loadTransactionsBtn">Load Transactions</button>
+    <div id="transactionContent" class="toggle-section">
+        <table id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Recipient</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
